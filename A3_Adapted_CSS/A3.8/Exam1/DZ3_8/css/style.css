@@ -1,0 +1,126 @@
+CSS:
+body {
+    margin: 0 auto;
+    background-color: rgb(224,224,224);
+}
+
+.header {
+    display: flex; 
+    margin: 0 auto;
+    justify-content: center;
+    max-width: 1249px;
+    height: 92px;
+    background-color: rgb(0, 0, 0);
+}
+
+.main-menu {display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.Home > a {
+    display: flex;
+    margin: 0 auto;
+    padding: 38px 27px 30px ;
+    color: rgb(224,224,224);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.Portfolio > a {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 38px 27px 30px ;
+    color: rgb(224,224,224);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.About > a {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 38px 27px 30px ;
+    color: rgb(224,224,224);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.Contact > a {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 38px 27px 30px ;
+    color: rgb(224,224,224);
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+.Home > a:hover {
+    background-color: rgb(255, 63, 64);
+}
+.Portfolio > a:hover {
+    background-color: rgb(255, 63, 64);
+}
+.About > a:hover {
+    background-color: rgb(255, 63, 64);
+}
+.Contact > a:hover {
+    background-color: rgb(255, 63, 64);
+}
+
+.main {
+    display: flex;
+    margin: 0 auto;
+    background-color: rgb(224,224,224);
+    max-width: 1249px;
+    padding: 108px 0 123px;
+}
+
+.main-header {
+    display: flex;
+    flex-direction: column;
+    max-width: 49%;
+    justify-content: flex-start;
+    /*vertical-align: top;*/
+    margin-right: 68px;
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 60px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 35px;
+}
+
+.main-text {
+    display: flex;
+    margin-bottom: 58px;
+    font-size: 16px;
+    opacity: 0.7;
+}
+
+.our-contact {
+    display: flex;
+    color: rgb(255, 255, 255);
+    background-color: rgb(255, 63, 64);
+    max-height: 58px; 
+    max-width: 200px;
+    font-size: 19px;
+    justify-content: center;
+    line-height: 50px;
+    text-decoration: none;
+}
+
+.main-image {
+    display: flex;
+    justify-content: flex-end;
+    max-width: 554px;
+    max-height: 359px;
+}
