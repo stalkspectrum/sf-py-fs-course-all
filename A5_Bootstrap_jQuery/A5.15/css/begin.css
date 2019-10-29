@@ -1,0 +1,16 @@
+.form-group {
+    display: flex;
+    justify-content: space-between;
+}
+
+label {
+    padding-right: 20px;
+}
+
+input {
+    max-width: 50vw;
+}
+
+.pulp_fiction {
+	margin: 30px;
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Сказка про курочку Рябу</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/begin.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Курочка ряба</h1>
+        <h3>Предлагаем поменять персонажей в известной сказке и пересказать её на новый лад</h3>
+        <form id="messages">
+            <div class="form-group">
+                <label for="var1">Первый&nbsp;заказчик {var1}: </label>
+                <input type="text" class="form-control" name="var1" placeholder="Дед" value="Дед">
+            </div>
+            <div class="form-group">
+                <label for="var2">Заместитель&nbsp;заказчика по исполнителям: {var2}</label>
+                <input type="text" class="form-control" name="var2" placeholder="Баба" value="Баба">
+            </div>
+            <div class="form-group">
+                <label for="var3">Исполнитель: {var3}</label>
+                <input type="text" class="form-control" name="var3" placeholder="Курочка Ряба" value="Курочка Ряба">
+            </div>
+            <div class="form-group">
+                <label for="var4">Долгожданный&nbsp;продукт: {var4}</label>
+                <input type="text" class="form-control" name="var4" placeholder="Яичко" value="яичко">
+            </div>
+            <div class="form-group">
+                <label for="var5">Тестировщик: {var5}</label>
+                <input type="text" class="form-control" name="var5" placeholder="Мышка" value="Мышка">
+            </div>
+            <div class="form-group">
+                <label for="var6">Каким инструментом работает тестировщик: {var6}</label>
+                <input type="text" class="form-control" name="var6" placeholder="хвостиком" value="хвостиком">
+            </div>
+            <div class="form-group">
+                <label for="var7">Отмазки исполнителя: {speach}</label>
+                <textarea class="form-control" name="var7" placeholder="Тут надо что-то написать обязательно, потому что &lt;textarea&gt;." required="required"></textarea>
+            </div>
+        </form>
+        <div class="row">
+            <a id="button-fetch" class="btn btn-primary">Создать сказку</a>
+        </div>
+        <div class="row">
+            <div class="pulp_fiction" id="result"></div>
+        </div>
+    </div>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/chickr.js"></script>
+</body>
+</html>

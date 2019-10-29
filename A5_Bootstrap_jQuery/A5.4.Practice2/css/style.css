@@ -1,0 +1,22 @@
+.header-block {
+	height: 40px;
+	background-color: #6666cc;
+	font-weight: bold;
+}
+.aside-block {
+	height: calc(100vh - 40px);
+	background-color: #444488;
+	font-weight: bold;
+}
+
+.main-block {
+	height: calc(100vh - 80px);
+	background-color: #aaaaee;
+	font-weight: bold;
+}
+
+.footer-block {
+	height: 40px;
+	background-color: #6666cc;
+	font-weight: bold;
+}
