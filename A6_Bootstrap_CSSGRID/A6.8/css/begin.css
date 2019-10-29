@@ -1,0 +1,15 @@
+body {
+	margin: 5vh 10vw;
+}
+
+.buttplus {
+	display: inline-block;
+	background-color: #44aa44;
+	color: #ffffff;
+}
+
+.buttminus {
+	display: inline-block;
+	background-color: #aa4444;
+	color: #ffffff;
+}

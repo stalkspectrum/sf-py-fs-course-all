@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>A6.8 ProgressBar</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/begin.css">
+</head>
+<body>
+    <h1>A6.8 ProgressBar</h1>
+    <div class="progress" style="height: 50px; font-size: 20px; font-weight: bold">
+        <div id="my-progress-bar" class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+    </div>
+    <p>Можно не только прибавлять, но и убавлять проценты. И только в пределах от 0% до 100%.</p>
+    <div class="button buttplus">
+        <a id="button1pc" class="btn">+1%</a>
+    </div>
+    <div class="button buttplus">
+        <a id="button3pc" class="btn">+3%</a>
+    </div>
+    <div class="button buttplus">
+        <a id="button7pc" class="btn">+7%</a>
+    </div>
+    <div class="button buttminus">
+        <a id="button-1pc" class="btn">-1%</a>
+    </div>
+    <div class="button buttminus">
+        <a id="button-3pc" class="btn">-3%</a>
+    </div>
+    <div class="button buttminus">
+        <a id="button-7pc" class="btn">-7%</a>
+    </div>
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/progbar.js"></script>
+</body>
+</html>
