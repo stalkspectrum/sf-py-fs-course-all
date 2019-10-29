@@ -1,0 +1,81 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial;
+    background-color: #f6f2f2;
+}
+
+.menu-bar {
+    width: 1249px;
+    height: 89px;
+    text-align: center;
+    margin-top: 29px;
+    margin-left: 164px;
+    background-color: #313030;
+}
+
+.menu-unit {
+    display: inline-block;
+    padding: 42px 30px 30px 30px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-unit a {
+    color: #e0e0e0;
+    text-decoration: none;
+}
+
+.menu-unit:hover {
+    background-color: #ff3f40;
+}
+
+.level-1 {
+    width: 1249px;
+    margin-top: 88px;
+    margin-right: 80px;
+    margin-left: 164px;
+}
+
+.brand-name {
+    display: inline-block;
+    vertical-align: top;
+    width: 554px;
+    height: 359px;
+    font-size: 30px;
+}
+
+.brand-name h1 {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+.brand-text {
+    width: 544px;
+    font-size: 16px;
+}
+
+.brand-button {
+    width: 230px;
+    color: #ffffff;
+    padding: 20px 0;
+    margin-top: 63px;
+    margin-bottom: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #ff2d2d;
+}
+
+.brand-button a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.embedvideo {
+    vertical-align: top;
+    display: inline-block;
+    width: 554px;
+    height: 359px;
+    margin-left: 135px;
+}
