@@ -1,0 +1,122 @@
+body {
+  margin: 0 auto;
+  font-family: "Open Sans", serif;
+}
+/* header{
+  display: flex;
+  justify-content: center;
+} */
+
+nav {
+  display: flex;
+  width: 1251px;
+  height: 90px;
+  margin: 0 auto;
+  margin-top: 29px;
+  background-color: #313030;
+  justify-content: center;
+  align-items: center;
+}
+.main-nav {
+  display: flex;
+  list-style: none;
+}
+.main-nav li a {
+  font-weight: bold;
+  color: #e0e0e0;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  display: block;
+  padding: 35.5px 50px 35.5px;
+}
+.main-nav li a:hover {
+  background-color: #ff3f40;
+}
+
+/* promo block one */
+.wrap {
+  display: flex;
+  width: 1251px;
+  height: auto;
+  margin: 0 auto;
+  margin-top: 103px;
+  justify-content: space-between;
+}
+.promo_text {
+  margin: 0;
+  margin-bottom: 0;
+}
+.promo_text > h1 {
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 60px;
+  line-height: 1.2;
+  margin: 0;
+}
+.our {
+  letter-spacing: 1.5px;
+}
+.org {
+  letter-spacing: 10.5px;
+}
+.promo_text > p {
+  font-size: 16px;
+  width: 30em;
+  line-height: 35px;
+  margin-top: 30px;
+  margin-bottom: 0;
+}
+.red_button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 46px;
+  width: 227px;
+  height: 55px;
+  background-color: #ff2d2d;
+}
+.red_button > a {
+  color: #f6f2f2;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.promo_wrap {
+  width: 551px;
+  height: 358px;
+  background-color: #313030;
+}
+/* footer */
+.connect {
+  flex: 1 0 auto;
+}
+.wrap_footer {
+  flex-shrink: 0;
+  height: 112px;
+  background-color: #313030;
+}
+/* для наглядного отображения footer */
+.data {
+  height: 500px;
+}
+.wrap_bottom {
+  display: flex;
+  width: 1251px;
+  height: 112px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrap_bottom > p {
+  font-size: 16px;
+  color: #b8b8b8;
+}
+.icons {
+  display: flex;
+  list-style: none;
+}
+
+.icons > li > a > img {
+  padding: 0px 0px 0px 18px;
+}
