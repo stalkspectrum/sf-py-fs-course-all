@@ -1,0 +1,802 @@
+@font-face {
+	src: url('../fonts/OpenSans-Regular.ttf');
+	font-family: 'OpenSans Regular';
+}
+
+@font-face {
+	src: url('../fonts/OpenSans-Italic.ttf');
+	font-family: 'OpenSans Italic';
+}
+
+@font-face {
+	src: url('../fonts/OpenSans-Bold.ttf');
+	font-family: 'OpenSans Bold';
+}
+
+@font-face {
+	src: url('../fonts/OpenSans-SemiBold.ttf');
+	font-family: 'OpenSans SemiBold';
+}
+
+@font-face {
+	src: url('../fonts/OpenSans-ExtraBold.ttf');
+	font-family: 'OpenSans ExtraBold';
+}
+
+body {
+	margin: 0;
+	font-family: 'OpenSans Regular', Helvetica, Arial, sans-serif;
+}
+
+/* Main Blocks */
+.intro,
+.services,
+.feature-products,
+.team,
+.subscribe,
+.feedback-contacts-wrapper,
+.footer-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: flex-start;
+	max-width: 1249px;
+	margin: 0 auto;
+	padding-left: 1vw;
+	padding-right: 1vw;
+}
+
+main {
+	overflow: hidden;
+	/* Это свойство скрывает переполнение. В этом макете это нужно, чтобы декоративная подложка в разделе контактов не выходила за край. Вообще-то это не самая лучшая практика, потому что она не решает проблему, а скрывает. В данном случае это ни на что не влияет, но в реальных проектах лучше найти решение проблемы. */
+}
+
+h2 {
+	color: #585858;
+	/* Хотя в макете цвет текста заголовков и других элементов достигается прозрачностью, в браузере такое значение даст другой результат. Другой вариант: взять цвет в фотошопе пипеткой. */
+	margin: 0;
+	font-family: 'OpenSans Bold';
+	font-size: 42px;
+	line-height: 55px;
+	text-transform: uppercase;
+}
+
+h3 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+	font-family: 'OpenSans Regular';
+	font-size: 16px;
+	line-height: 28px;
+}
+
+.header-out-wrapper,
+.intro-out-wrapper {
+	background-color: #e0e0e0;
+}
+
+.header-line {
+	width: 122px;
+	height: 3px;
+	background-color: #ff2d2d;
+	border: none;
+}
+
+/* Header */
+header {
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-width: 1249px;
+	margin: 0 auto;
+	min-height: 89px;
+	background-color: #000000;
+}
+
+.site-menu {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	position: relative;
+	right: 20px;
+}
+
+.site-menu > a {
+	padding: 39px 30px 30px;
+	color: #e0e0e0;
+	font-size: 14px;
+	font-weight: bold;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.site-menu > a:hover {
+	background-color: #ff3f40;
+}
+
+/* Intro */
+.intro {
+	background-color: #e0e0e0;
+	padding-top: 103px;
+	padding-bottom: 94px;
+}
+
+.intro-wrapper {
+	position: relative;
+    bottom: 11px;
+	width: 617px;
+	vertical-align: top;
+	margin-bottom: 20px;
+	margin-right: 75px;
+}
+
+.intro-heading {
+	margin: 0;
+	font-size: 60px;
+	line-height: 1.2em;
+	/* Чтобы высота строки оставалась пропорциональной разному размеру шрифта, можно указать ее в относительных единицах em. Они зависят от размера шрифта. */
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 18px;
+	font-family: 'OpenSans ExtraBold';
+	letter-spacing: 1.5px;
+	/* Свойство letter-spacing позволяет изменить межбуквенное расстояние. */
+}
+
+.intro-heading > .style-text {
+	letter-spacing: 6px;
+	word-break: break-word;
+	hyphens: auto;
+	/* Свойство word-break заставляет слова переноситься по буквам, если они не помещаются в родительский элемент.*/
+}
+
+.intro-text {
+	max-width: 520px;
+	margin-bottom: 51px;
+	opacity: 0.7; 
+}
+
+.contact-link {
+	box-sizing: border-box;
+	color: #ffffff;
+	font-size: 18px;
+	font-family: 'OpenSans Bold';
+	display: inline-block;
+	background-color: #ff3f40;
+	width: 227px;
+	padding: 16px 0;
+	text-align: center;
+	text-decoration: none;
+	border-radius: 5px;
+}
+
+.intro-image {
+	width: 551px;
+	height: 356px;
+	box-shadow: 0 -10px 40px 0 rgb(124, 124, 124);
+	/* Свойство box-shadow позволяет создать тень бокса. Первые два значения - смещение по горизонтали и вертикали. Третье - размытие. Четвертое - распространение. И цвет. */
+}
+
+/* Services */
+.services {
+	padding-top: 106px;
+	padding-bottom: 53px;
+	border-bottom: 1px solid #ececec;
+}
+
+.services-lead-wrapper {
+	flex: 1 1 502px;
+	/* Свойство flex совмещает в себе три свйоства grow shrink и basis. Первые два позволяют сказать, что флекс элемент может расширятсья и сжиматься. Третье задает базовую ширину, которая расчитывается до всего остального */
+	max-width: 502px;
+	margin-bottom: 50px;
+	margin-right: 50px;
+}
+
+.services-heading {
+	position: relative;
+    bottom: 5px;
+	margin-bottom: 27px;
+}
+
+.services-text {
+	margin-bottom: 51px;
+}
+
+.services-link {
+	color: #ff3f40;
+	display: inline-block;
+	background-color: #ffffff;
+	width: 227px;
+	padding: 16px 0;
+	border: 2px solid #ff3f40;
+	border-radius: 5px;
+	text-align: center;
+	text-decoration: none;
+}
+
+.services-wrapper {
+	flex: 1 1;
+	max-width: 609px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.service {
+	flex: 1 1 288px;
+	width: 288px;
+	margin-bottom: 50px;
+}
+
+.service:nth-child(odd) {
+	margin-right: 32px;
+}
+
+.service > h3 {
+	letter-spacing: 1.5px;
+	font-family: 'OpenSans SemiBold';
+	font-size: 22px;
+	margin-bottom: 10px;
+}
+
+.service > h3::before {
+	display: block;
+	width: 41px;
+	height: 41px;
+	margin-bottom: 23px;
+}
+
+.service > p {
+	opacity: 0.7;
+}
+
+.service > .management::before {
+	content: url('../images/service-1.png');
+}
+
+.service > .ux::before {
+	content: url('../images/service-2.png');
+}
+
+.service > .branding::before {
+	content: url('../images/service-3.png');
+}
+
+.service > .animation::before {
+	content: url('../images/service-4.png');
+}
+
+/* Feature products */
+.feature-products {
+	padding-top: 94px;
+	padding-bottom: 52px
+}
+
+.feature-header {
+	width: 100%;
+	text-align: center;
+	margin-bottom: 67px;
+}
+
+.feature-heading {
+	padding-left: 14px;
+	margin-bottom: 16px;
+}
+
+.feature-text {
+	max-width: 500px;
+	margin: 0 auto 30px;
+	opacity: 0.7;
+}
+
+.products-filter {
+	width: 100%;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	margin-bottom: 60px;
+}
+
+.products-filter a {
+	position: relative;
+    left: 45px;
+	color: #000;
+	margin-right: 55px;
+	font-size: 22px;
+	font-family: 'OpenSans SemiBold';
+	text-transform: uppercase;
+	text-decoration: none;
+	opacity: 0.7;
+}
+
+.products-filter a.active {
+	color: #ff2d2d;
+	opacity: 1;
+}
+
+.products-filter a:hover {
+	color: #ff2d2d;
+}
+
+.products-wrapper {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+.product {
+	flex: 1 1 24%;
+	min-width: 250px;
+	max-width: 299px;
+	height: 291px;
+	margin-bottom: 18px;
+	object-fit: cover;
+	/* Свйоство object-fit позволяет управлять размером изображений как фоновым, то есть независимо от границ самого элемента img. Это новое свойство и не работает в старых браузерах. */
+}
+
+/* Team */
+.team {
+	padding-top: 60px;
+	padding-bottom: 110px;
+}
+
+.team-header {
+	width: 100%;
+	text-align: left;
+	margin-bottom: 67px;
+}
+
+.team-heading {
+	margin-bottom: 23px;
+}
+
+.team-text {
+	max-width: 460px;
+	margin-bottom: 30px;
+}
+
+.team-line {
+	margin-left: 0;
+}
+
+.team-members-wrapper {
+	width: 100%;
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+.main-member-photo {
+	width: 321px;
+	height: 458px;
+	margin-right: 65px;
+	background-color: #eb6d4a8f;
+}
+
+.main-member-info {
+	position: absolute;
+	max-width: 642px;
+	top: 5px;
+	left: 393px;
+}
+
+.main-member-info > h3 {
+	position: relative;
+    bottom: 5px;
+	font-size: 30px;
+	font-family: 'OpenSans SemiBold';
+	text-transform: uppercase;
+	opacity: 0.8;
+	margin-bottom: 16px;
+}
+
+.member-social-links > a {
+	color: #000;
+	font-size: 18px;
+	font-family: 'OpenSans Italic';
+	text-decoration: none;
+	margin-right: 30px;
+} 
+
+.member-social-links > a:hover {
+	text-decoration: underline;
+}
+
+.main-member-info > p {
+	margin-bottom: 34px;
+}
+
+.members-wrapper {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.member {
+	position: relative;
+	margin-top: 18px;
+	margin-right: 18px;
+}
+
+.member > h3 {
+	visibility: hidden;
+	color: #ffffff;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 37px;
+	text-align: center;
+	background-color: #000;
+	opacity: 0.5;
+}
+
+.member:hover > h3 {
+	visibility: visible;
+}
+
+.member-photo {
+	display: block;
+	width: 197px;
+	height: 214px;
+	background-color: #d4dce680;
+}
+
+/* Subscribe */
+.subscribe {
+	box-sizing: border-box;
+	display: block;
+	width: 100%;
+	max-width: 100%;
+	background-color: #2c2c2c;
+	padding-top: 124px;
+	padding-bottom: 140px;
+}
+
+.subscribe-wrapper {
+	max-width: 1249px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.subscribe-heading {
+	color: #fff;
+	opacity: 0.8;
+	text-transform: none;
+	margin-bottom: 30px;
+}
+
+.subscribe-wrapper > p {
+	color: #fff;
+	opacity: 0.8;
+	margin-bottom: 50px;
+}
+
+.subscribe-form {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.subscribe-form > .email-input {
+	color: grey;
+	display: flex;
+	align-items: center;
+	background-color: #fff;
+	box-sizing: border-box;
+	flex: 0 1 521px;
+	max-width: 521px;
+	min-height: 79px;
+	padding: 0;
+	padding-left: 35px;
+	border: none;
+	border-radius: 5px;
+	margin-right: 22px;
+}
+
+.subscribe-form > .subscribe-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'OpenSans Bold';
+	width: 214px;
+	min-height: 79px;
+	background-color: #ff2d2d;
+	border: none;
+	border-radius: 5px;
+	text-transform: uppercase;
+}
+
+/* Feedback */
+.feedback-contacts-wrapper {
+	position: relative;
+	display: flex;
+	align-items: flex-end;
+	flex-wrap: nowrap;
+	padding-top: 92px;
+	padding-bottom: 110px;
+}
+
+.feedback {
+	max-width: 731px;
+	margin-right: 107px;
+}
+
+.feedback > h2 {
+	margin-bottom: 34px;
+}
+
+.feedback > p {
+	max-width: 720px;
+	margin-bottom: 50px;
+}
+
+.feedback-line {
+	margin-left: 0;
+	margin-bottom: 75px;
+}
+
+.feedback-form {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.feedback-form > div {
+	color: grey;
+	display: flex;
+	align-items: center;
+	box-sizing: border-box;
+	padding-left: 54px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f3f3f3;	
+	margin-bottom: 45px;
+}
+
+.feedback-form > .name-input,
+.feedback-form > .email-input {
+	width: 339px;
+	max-width: 339px;
+	height: 69px;
+}
+
+.feedback-form > .name-input {
+	margin-right: 53px;
+}
+
+.feedback-form > .message-input {
+	resize: none;
+	font-size: 16px;
+	font-family: 'OpenSans Regular';
+	width: 731px;
+	max-width: 731px;
+	height: 249px;
+	box-sizing: border-box;
+	padding-top: 35px;
+	padding-left: 54px;
+	padding-bottom: 150px;
+	margin-bottom: 45px;
+	border: none;
+	border-radius: 5px;
+	background-color: #f3f3f3;	
+}
+
+.feedback-form > .send-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-decoration: none;
+	width: 731px;
+	max-width: 731px;
+	height: 72px;
+	color: #fff;
+	font-size: 18px;
+	font-family: 'OpenSans Bold';
+	background-color: #ff2d2d;
+	border: none;
+	border-radius: 5px;
+	text-transform: uppercase;
+} 
+
+/* Contacts */
+.contacts {
+	position: relative;
+	color: #e0e0e0;
+	background-color: #2c2c2c;
+	padding: 125px 78px;
+}
+
+.contacts > h2 {
+	color: #e0e0e0;
+	font-size: 18px;
+}
+
+.contacts > h2 {
+	margin-bottom: 13px;
+}
+
+.contacts-address {
+	line-height: 28px;
+}
+
+.contacts-address > p {
+	margin-bottom: 17px;
+}
+
+.contacts-background {
+	position: absolute;
+	z-index: -1;
+	width: 100vw;
+	height: 481px;
+	background-color: #2c2c2c;
+	clip-path: polygon(1000px 0, 100% 0, 100% 100%, 1000px 100%);
+	/* Свойство clip-path позволяет наложить на элемент маску, которая может визуально скрыть части этого элемента. Макса может быть самой разной формы, в данном случае это прямоугольник. */
+}
+
+.contacts::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	/* Свойство transform позволяет изменять внешний вид элементов. Значение translate сдвигает элемент по осям X, Y или по обеим сразу. Его особенность - проценты расчитываются не от размеров родителя, а от самого элемента. При этом такой сдвинутый элемент не участвует в потоке. */
+	width: 100vw;
+	height: 481px;
+	background-color: #2c2c2c;
+}
+/* Второй способ сделать темную подложку - создать пустой псевдоэлемент, стилизовать его и тоже исопльзовать позиционирование. Этот подход лучше тем, что вам не нужно изменять HTML. Сейчас работает этот способ, поэтому элемент в HTML отключен. */
+
+/* Footer */
+footer {
+	background-color: #2c2c2c;
+	padding: 0 1vw;
+}
+
+.footer-wrapper {
+	box-sizing: border-box;
+	padding: 19px 0 0;
+	color: #e0e0e0;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	min-height: 110px;
+	background-color: #2c2c2c;
+}
+
+.footer-social-links > a:not(:last-child) {
+	margin-right: 18px;
+}
+
+/* Responsive */
+@media screen and (max-width: 1286px) {
+	.intro {
+		flex-wrap: nowrap;
+	}
+	.intro-wrapper {
+		width: 50%;
+		box-sizing: border-box;
+		margin-right: 0;
+		padding-right: 15px;
+	}
+	.intro-heading {
+		font-size: 5vw;
+	}
+	.intro-image-link {
+		width: 50%;
+		height: auto;
+	}
+	.intro-image {
+		width: 100%;
+		height: auto;
+	}
+	.products-wrapper {
+		justify-content: flex-start;
+	}
+	.product {
+		width: 299px;
+		max-width: 100%;
+		/* height: auto; */
+		margin-right: 1vw;
+	}
+	.feedback-contacts-wrapper {
+		flex-wrap: wrap;
+		padding-left: initial;
+    	padding-right: initial;
+	}
+	.feedback {
+		margin: 0 auto;
+		margin-bottom: 30px;
+		padding: 0 1vw;
+	}
+	.contacts {
+		width: 100%;
+		max-width: 100%;
+	}
+	.contacts-background {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.main-member-info {
+		position: initial;
+	}
+	.products-filter > li {
+		width: 100%;
+		text-align: center;
+	}
+	.services {
+		justify-content: center;
+	}
+	.services-lead-wrapper,
+	.services-wrapper {
+		width: 100%;
+		max-width: 100%;
+	}
+}
+
+@media screen and (max-width: 800px) {
+	.services-lead-wrapper {
+		width: 100%;
+		max-width: 100%;
+	}
+	.services-wrapper {
+		width: 100%;
+		max-width: 100%;
+	}
+	.contacts {
+		padding: 1vw;
+	}
+}
+
+@media screen and (max-width: 760px) {
+	.feedback-form > .name-input,
+	.feedback-form > .email-input,
+	.feedback-form > .message-input,
+	.feedback-form > .send-button {
+		width: 100%;
+		max-width: 100%;
+	}
+	.feedback-form > .name-input {
+		margin-right: 0;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	header {
+		padding-left: 20px;
+	}
+	.intro {
+		flex-wrap: wrap;
+	}
+	.intro-wrapper {
+		width: 100%;
+	}
+	.intro-image-link {
+		width: 100%;
+	}
+	.intro-image {
+		width: 100%;
+		height: auto;
+	}
+	.intro-heading {
+		font-size: 50px;
+	}
+}
+
+@media screen and (max-width: 400px) {
+	.subscribe-form {
+		flex-wrap: wrap;
+	}
+}
+
