@@ -1,0 +1,43 @@
+.header-wrapper {
+    background-color: #000000;
+    padding-left: 356px;
+    margin: 29px 167px 80px 166px;
+    width: 1249px;
+}
+.header-wrapper ul {
+    margin-right: 402px;    
+}
+.header-wrapper a {
+    height: 91px;
+}
+.ssilka-menu {
+    color: #E0E0E0;
+}
+li {
+    padding: 32px;
+    display: inline-block;
+    list-style: none;
+}
+li:hover {
+    background-color: #FF3F40;
+}
+.float-wrapper {
+}
+.float-one {
+    display: inline-block;
+    vertical-align: top;
+}
+.float-one h1 {
+    margin: 102 px 80px 36px 166px;
+    width: 618px;
+    height: 117px;
+}
+.float-one p {
+    margin: 36px 152px 61px 167px;
+    width: 573px;
+    height: 73px;
+}
+.img {
+    margin: 101px 164px 111px 80px ;
+    display: inline-block;
+}
