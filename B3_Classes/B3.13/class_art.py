@@ -33,18 +33,18 @@ class TopLevelTagArt:
     '''
     def __init__(self, H_TLTAG, **ARG_DICT):
         self.H_TLTAG = H_TLTAG
-        self.TLTAG_INSIDE_CONTENT = []
+        self.TAG_INSIDE_CONTENT = []
     def __enter__(self, *ARG_LIST, **ARG_DICT):
         return self
     def __exit__(self, *ARG_LIST, **ARG_DICT):
         pass
-    def __iadd__(self, TLTAG_INSIDE_STRINGS):
-        self.TLTAG_INSIDE_CONTENT.append(TLTAG_INSIDE_STRINGS)
+    def __iadd__(self, TAG_INSIDE_STRINGS):
+        self.TAG_INSIDE_CONTENT.append(TAG_INSIDE_STRINGS)
         return self
     def __str__(self):
         HTML_CODE = '<{TAG_NAME}>\n'.format(TAG_NAME=self.H_TLTAG)
-        for TLTAG_INSIDE_STRINGS in self.TLTAG_INSIDE_CONTENT:
-            HTML_CODE += str(TLTAG_INSIDE_STRINGS)
+        for TAG_INSIDE_STRINGS in self.TAG_INSIDE_CONTENT:
+            HTML_CODE += str(TAG_INSIDE_STRINGS)
         HTML_CODE += '</{TAG_NAME}>\n'.format(TAG_NAME=self.H_TLTAG)
         return HTML_CODE
 
@@ -73,9 +73,6 @@ class TagArt(TopLevelTagArt):
             if '_' in I_ATTRIB:
                 I_ATTRIB = I_ATTRIB.replace('_', '-')
             self.TAG_ATTRIBS_DICT[I_ATTRIB] = I_VALUE
-    def __iadd__(self, TAG_INSIDE_STRINGS):
-        self.TAG_INSIDE_CONTENT.append(TAG_INSIDE_STRINGS)
-        return self
     def __str__(self):
         S_ATTRIBS = []
         for S_ATTRIB, S_VALUE in self.TAG_ATTRIBS_DICT.items():
