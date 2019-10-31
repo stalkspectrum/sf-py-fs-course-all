@@ -42,8 +42,8 @@ def generate_code(F_OUTPUT=None):
                 with Tag("img", is_single=True, src="/icon.png", data_image="responsive", tag_level="2") as img:
                     div_1 += img
                 body += div_1
-            with Tag("br", is_single=True) as br:
-                body += br
+            with Tag("hr", is_single=True) as hr:
+                body += hr
             with Tag("div", css_class=("div2test",)) as div_2:
                 with Tag("div", css_class=("div2-test",), id_t="id_test", tag_level="2") as div_3:
                     with Tag("p", css_class=("par_test",), tag_level="3") as paragraph:
