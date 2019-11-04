@@ -1,15 +1,13 @@
 import sqlalchemy as sa
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.ext.declarative import declarative_base
-#from sqlalchemy.ext.indexable import index_property
 
-DB_PATH = 'sqlite:///sochi_athletes.sqlite3'
+DB_PATH = "sqlite:///sochi_athletes.sqlite3"
 Base = declarative_base()
 
 class User(Base):
-    __tablename__ = 'user'
-    #id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
-    id = sa.Column(sa.Integer, primary_key=True)
+    __tablename__ = "user"
+    id = sa.Column(sa.Integer, primary_key=True, autoincrement=True)
     first_name = sa.Column(sa.Text)
     last_name = sa.Column(sa.Text)
     gender = sa.Column(sa.Text)
@@ -28,13 +26,12 @@ def valid_email(email):
 
 def request_data():
     print('---=== Сбор данных о пользователе ===---')
-    user_id = 1
     first_name = input('Имя: ')
     last_name = input('Фамилия: ')
-    gender_draft = input('Пол (Male|Female или M|F или М|Ж): ')
-    if gender_draft[0] in ['M', 'М']:
+    gender_draft = input('Пол (Male, M, m, М, м или Female, F, f, Ж, ж: ')
+    if gender_draft[0] in ['M', 'm', 'М', 'м']:
         gender = 'Male'
-    elif gender_draft[0] in ['F', 'Ж']:
+    elif gender_draft[0] in ['F', 'f', 'Ж', 'ж']:
         gender = 'Female'
     else:
         gender = gender_draft
@@ -44,9 +41,8 @@ def request_data():
     else:
         email = 'nobody@nowhere.never'
     birthdate = input('Дата рождения (YYYY-MM-DD): ')
-    height = input('Рост в метрах: ')
+    height = float(input('Рост в метрах: '))
     user = User(
-        id=user_id,
         first_name=first_name,
         last_name=last_name,
         gender=gender,
@@ -54,6 +50,7 @@ def request_data():
         birthdate=birthdate,
         height=height
     )
+    return user
 
 def main():
     session = connect_db()
