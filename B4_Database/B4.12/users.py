@@ -21,36 +21,36 @@ def connect_db():
     session = sessionmaker(engine)
     return session()
 
-def valid_email(email):
-    return '@' in email and '.' in email.split('@')[1]
+def valid_email(E_MAIL):
+    return '@' in E_MAIL and '.' in E_MAIL.split('@')[1]
 
 def request_data():
     print('---=== Сбор данных о пользователе ===---')
-    first_name = input('Имя: ')
-    last_name = input('Фамилия: ')
-    gender_draft = input('Пол (Male, M, m, М, м или Female, F, f, Ж, ж: ')
-    if gender_draft[0] in ['M', 'm', 'М', 'м']:
-        gender = 'Male'
-    elif gender_draft[0] in ['F', 'f', 'Ж', 'ж']:
-        gender = 'Female'
+    FIRST_NAME = input('Имя: ')
+    LAST_NAME = input('Фамилия: ')
+    GENDER_DRAFT = input('Пол (Male, M, m, М, м или Female, F, f, Ж, ж: ')
+    if GENDER_DRAFT[0] in ['M', 'm', 'М', 'м']:
+        GENDER = 'Male'
+    elif GENDER_DRAFT[0] in ['F', 'f', 'Ж', 'ж']:
+        GENDER = 'Female'
     else:
-        gender = gender_draft
-    email_draft = input('Адрес электронной почты: ')
-    if valid_email(email_draft):
-        email = email_draft
+        GENDER = GENDER_DRAFT
+    EMAIL_DRAFT = input('Адрес электронной почты: ')
+    if valid_email(EMAIL_DRAFT):
+        EMAIL = EMAIL_DRAFT
     else:
-        email = 'nobody@nowhere.never'
-    birthdate = input('Дата рождения (YYYY-MM-DD): ')
-    height = float(input('Рост в метрах: '))
-    user = User(
-        first_name=first_name,
-        last_name=last_name,
-        gender=gender,
-        email=email,
-        birthdate=birthdate,
-        height=height
+        EMAIL = 'nobody@nowhere.never'
+    BIRTHDATE = input('Дата рождения (YYYY-MM-DD): ')
+    HEIGHT = float(input('Рост в метрах: '))
+    USER = User(
+        first_name=FIRST_NAME,
+        last_name=LAST_NAME,
+        gender=GENDER,
+        email=EMAIL,
+        birthdate=BIRTHDATE,
+        height=HEIGHT
     )
-    return user
+    return USER
 
 def main():
     session = connect_db()

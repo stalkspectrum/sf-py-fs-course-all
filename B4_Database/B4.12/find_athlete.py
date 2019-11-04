@@ -44,6 +44,7 @@ def find_user_by_id(USER_NUM, session):
     return USER_BIRTHDATE, USER_HEIGHT
 
 def find_sportsman_by_bdate(BDATE, session):
+    ##### Функция возвращает имя и дату рождения спортсмена, ближайшего к пользователю
     B_DELTA_MIN = 10000000      ##### Начальное значение можно задать "почти бесконечным" для данной задачи
     digidate = lambda DD: int(DD.split('-')[0]) * 365 + int(DD.split('-')[1]) * 30 + int(DD.split('-')[2])
     SPORTSMEN = session.query(Sportsman).all()
@@ -59,6 +60,7 @@ def find_sportsman_by_bdate(BDATE, session):
     return B_NAME, B_DATE
 
 def find_sportsman_by_height(TALL, session):
+    ##### Функция возвращает имя и рост спортсмена, ближайшего к пользователю
     H_DELTA_MIN = 5.0     ##### Начальное значение можно задать "почти бесконечным" для данной задачи
     SPORTSMEN = session.query(Sportsman).all()
     SPORTSMEN_H_DICT = {S_MEN.name: S_MEN.height for S_MEN in SPORTSMEN}
