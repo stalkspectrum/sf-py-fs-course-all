@@ -11,7 +11,7 @@ class TimeMeter:
     def __call__(self, *args, **kwargs):
         def wrapper(*args, **kwargs):
             AVG_TIME = 0
-            print('\nPlease wait. I\'m computing', self.NUM_RUNS, 'iterations...')
+            print('\nPlease wait. I\'m compute', self.NUM_RUNS, 'iterations...')
             for K in range(self.NUM_RUNS):
                 t0 = time.time()
                 self.FUNC(*args)
