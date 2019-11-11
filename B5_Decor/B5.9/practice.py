@@ -11,7 +11,7 @@ def time_this(function):
             t1 = time.time()
             AVG_TIME += (t1 - t0)
         AVG_TIME /= RUN_COUNT
-        print('Average time taken per iteration: %.5f seconds\n' % AVG_TIME)
+        print('Average time taken per iteration: %.6f seconds\n' % AVG_TIME)
     return wrapper
 
 @time_this
