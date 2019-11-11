@@ -1,24 +1,27 @@
 import time
 
-class DECORATOR1:
+class TimeMeter:
     def __call__(self, function):
         def wrapper(parameter, num_runs):
             RUN_COUNT = num_runs
             AVG_TIME = 0
-            print('Please wait. I\'m computing', RUN_COUNT, 'iterations...')
+            print('\nPlease wait. I\'m computing', RUN_COUNT, 'iterations...')
             for COUNT in range(RUN_COUNT):
                 t0 = time.time()
                 function(parameter)
                 t1 = time.time()
                 AVG_TIME += (t1 - t0)
             AVG_TIME /= RUN_COUNT
-            print('One iteration average time taken: %.5f seconds' % AVG_TIME)
+            print('Average time taken per iteration: %.6f seconds\n' % AVG_TIME)
         return wrapper
 
-decorator = DECORATOR1()
+time_this = TimeMeter()
 
-@decorator
-def fibonacci_row(UPPER_THRESHOLD):
+@time_this
+def fibo_row(UPPER_THRESHOLD):
+    '''Функция строит ряд Фибоначчи до первого числа, превысившего UPPER_THRESHOLD,
+    и суммирует сначала только чётные числа, потом только чётные члены ряда.
+    '''
     FIBO_LIST = [1, 2]
     FL = 1
     BLACKHOLE_STRING = ''
@@ -37,4 +40,4 @@ def fibonacci_row(UPPER_THRESHOLD):
 
 # Первый параметр - верхняя граница ряда Фибоначчи
 # Второй параметр - число итераций цикла вычисления ряда Фибоначчи и кое-каких сумм
-fibonacci_row(1000000000000000000000, 2000)
+fibo_row(1000000000000000000000, 2000)
