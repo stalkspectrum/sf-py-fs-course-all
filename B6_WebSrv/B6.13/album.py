@@ -24,9 +24,9 @@ def show_all():
     ALBUMS_ALL = SESSION_S.query(Album).all()
     return ALBUMS_ALL
 
-def find_artist(artist):
+def find_artist(ARTIST_R):
     SESSION_F = connect_db()
-    albums = SESSION_F.query(Album).filter(Album.artist == artist).all()
+    albums = SESSION_F.query(Album).filter(Album.artist == ARTIST_R).all()
     return albums
 
 ''' НЕПРАВИЛЬНО

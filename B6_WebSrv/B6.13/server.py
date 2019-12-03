@@ -12,14 +12,19 @@ def server_root():
 
 @route('/albums', method='POST')
 def add_new_album():
-    YEAR_N = request.forms.get('year')
-    ARTIST_N = request.forms.get('artist')
-    GENRE_N = request.forms.get('genre')
-    ALBUM_N = request.forms.get('album')
-    RES_N = album.add_album(YEAR_N, ARTIST_N, GENRE_N, ALBUM_N)
-    RES_D = '<P><A HREF="/">Вернуться на Home Page</A></P>'
-    RES_D += 'Альбом <B>' + ARTIST_N + ' -- ' + ALBUM_N +'</B> добавлен в базу.'
-    return RES_D
+    try:
+        YEAR_N = int(request.forms.get('year'))
+    except:
+        YEAR_N = None
+    GENRE_N = str(request.forms.get('genre')).strip()
+    ARTIST_N = str(request.forms.get('artist')).strip()
+    assert len(ARTIST_N) > 0, 'Заполните поле <Артист или группа>'
+    ALBUM_N = str(request.forms.get('album')).strip()
+    assert len(ALBUM_N) > 0, 'Заполните поле <Название альбома>'
+    RES_0 = album.add_album(YEAR_N, ARTIST_N, GENRE_N, ALBUM_N)
+    RES_N = '<P><A HREF="/">Вернуться на Home Page</A></P>'
+    RES_N += 'Альбом <B>' + ARTIST_N + ' -- ' + ALBUM_N +'</B> добавлен в базу.'
+    return RES_N
 
 @route('/albums/<artist>')
 def albums_count(artist):
@@ -27,7 +32,7 @@ def albums_count(artist):
         ALBUM_LIST = album.show_all()
         ALL_ALBUM_BASE = []
         for ALBUM_S in ALBUM_LIST:
-            ALBUM_STRING = ALBUM_S.artist + ' -- ' + ALBUM_S.album
+            ALBUM_STRING = ALBUM_S.artist + ' -- ' + ALBUM_S.album + ' (' + str(ALBUM_S.year) + ') ' + ALBUM_S.genre
             ALL_ALBUM_BASE.append(ALBUM_STRING)
         ALBUM_SUM = len(ALL_ALBUM_BASE)
         RES_A = '<P><A HREF="/">Вернуться на Home Page</A></P>'
