@@ -16,32 +16,30 @@ class Album(Base):
 def connect_db():
     DB_CONNECTOR = sa.create_engine(DB_PATH)
     Base.metadata.create_all(DB_CONNECTOR)
-    FACTORY_SESSIONS = sessionmaker(DB_CONNECTOR)
-    return FACTORY_SESSIONS()
+    SESSIONS_FACTORY = sessionmaker(DB_CONNECTOR)
+    return SESSIONS_FACTORY()
 
 def show_all():
-    SESSION_S = connect_db()
-    ALBUMS_ALL = SESSION_S.query(Album).all()
-    return ALBUMS_ALL
+    SESSION_ = connect_db()
+    ALL_ALBUMS = SESSION_.query(Album).all()
+    return ALL_ALBUMS
 
-def find_artist(ARTIST_R):
-    SESSION_F = connect_db()
-    albums = SESSION_F.query(Album).filter(Album.artist == ARTIST_R).all()
-    return albums
+def find_artist(ARTIST_):
+    SESSION_ = connect_db()
+    ALBUMS_ = SESSION_.query(Album).filter(Album.artist == ARTIST_).all()
+    return ALBUMS_
 
-''' НЕПРАВИЛЬНО
-def if_already_exist(ARTIST_, ALBUM_):
-    SESSION_I = connect_db()
-    ID_ = select([Album.id]).where(Album.album == ALBUM_)
-    if select([Album.artist]).where(Album.id == ID_) == ARTIST_:
-        return True
-    else:
+def if_not_exist(ARTIST_, ALBUM_):
+    SESSION_ = connect_db()
+    ID_ = SESSION_.query(Album).filter(Album.artist == ARTIST_, Album.album == ALBUM_).first()
+    if ID_ is not None:
         return False
-'''
+    else:
+        return True
 
-def add_album(YEAR_F, ARTIST_F, GENRE_F, ALBUM_F):
-    new_album_data = Album(year=YEAR_F, artist=ARTIST_F, genre=GENRE_F, album=ALBUM_F)
-    SESSION_W = connect_db()
-    SESSION_W.add(new_album_data)
-    SESSION_W.commit()
-    return 'NEW Album added to DATABASE!'
+def add_album(YEAR_, ARTIST_, GENRE_, ALBUM_):
+    new_album_data = Album(year=YEAR_, artist=ARTIST_, genre=GENRE_, album=ALBUM_)
+    SESSION_ = connect_db()
+    SESSION_.add(new_album_data)
+    SESSION_.commit()
+    return 'NEW Album added to DATABASE.'
