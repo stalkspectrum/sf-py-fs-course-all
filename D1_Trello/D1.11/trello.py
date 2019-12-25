@@ -1,22 +1,20 @@
 import sys
 import requests
 
-auth_params = {
-    'key': '48d929e1c42b6c714db9370c6bc474eb',
-    'token': 'a03c20cba88d5743fb5a691f8c8b76d128a9a4b2f750be86bf47412528da0d5e',
+AUTH_PARAMS = {
+    'key': '48d9****c42b****4db9****6bc4****',                                      # Write your API_KEY here
+    'token': 'a03c****a88d****fb5a****8c8b****28a9****f750****bf47****28da****',    # Write your API_TOKEN here
 }
 
-base_url = 'https://api.trello.com/1/{}'
-#URL = 'https://trello.com/b/XvaZ3Sb8/created-with-pythoncli'
-#board_id = '5e00c85889c386305ff34cb8'
-board_id = 'XvaZ3Sb8'
+BASE_URL = 'https://api.trello.com/1/{}'
+BOARD_ID = 'Xv****b8'                                                               # Write your BOARD_ID here
 
 def read():
-    all_lists_data = requests.get(base_url.format('boards') + '/' + board_id + '/lists', params=auth_params).json()
+    all_lists_data = requests.get(BASE_URL.format('boards') + '/' + BOARD_ID + '/lists', params=AUTH_PARAMS).json()
     print('\nВ этой доске', len(all_lists_data), 'колонки:\n')
     _num = 0
     for column in all_lists_data:
-        task_data = requests.get(base_url.format('lists') + '/' + column['id'] + '/cards', params=auth_params).json()
+        task_data = requests.get(BASE_URL.format('lists') + '/' + column['id'] + '/cards', params=AUTH_PARAMS).json()
         _num += 1
         if not task_data:
             print(str(_num) + ') \"' + column['name'] + '\" -- нет задач')
@@ -27,18 +25,18 @@ def read():
                 print('\t* ' + task['name'])
 
 def create(name, column_name):
-    column_data = requests.get(base_url.format('boards') + '/' + board_id + '/lists', params=auth_params).json()
-    #all_cards_data = requests.get(base_url.format('boards') + '/' + board_id + '/cards', params=auth_params).json()
+    column_data = requests.get(BASE_URL.format('boards') + '/' + BOARD_ID + '/lists', params=AUTH_PARAMS).json()
+    #all_cards_data = requests.get(BASE_URL.format('boards') + '/' + BOARD_ID + '/cards', params=AUTH_PARAMS).json()
     for column in column_data:
         if column['name'] == column_name:
-            requests.post(base_url.format('cards'), data={'name': name, 'idList': column['id'], **auth_params})
+            requests.post(BASE_URL.format('cards'), data={'name': name, 'idList': column['id'], **AUTH_PARAMS})
             break
 
 def move(name, column_name):
-    column_data = requests.get(base_url.format('boards') + '/' + board_id + '/lists', params=auth_params).json()
+    column_data = requests.get(BASE_URL.format('boards') + '/' + BOARD_ID + '/lists', params=AUTH_PARAMS).json()
     task_id = None
     for column in column_data:
-        column_tasks = requests.get(base_url.format('lists') + '/' + column['id'] + '/cards', params=auth_params).json()
+        column_tasks = requests.get(BASE_URL.format('lists') + '/' + column['id'] + '/cards', params=AUTH_PARAMS).json()
         for task in column_tasks:
             if task['name'] == name:
                 task_id = task['id']
@@ -47,7 +45,7 @@ def move(name, column_name):
             break
     for column in column_data:
         if column['name'] == column_name:
-            requests.put(base_url.format('cards') + '/' + task_id + '/idList', data={'value': column['id'], **auth_params})
+            requests.put(BASE_URL.format('cards') + '/' + task_id + '/idList', data={'value': column['id'], **AUTH_PARAMS})
             break
 
 if __name__ == '__main__':
