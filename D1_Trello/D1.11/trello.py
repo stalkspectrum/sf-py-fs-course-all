@@ -24,10 +24,10 @@ USAGE_STR = '\n!!!!!!!!!! USAGE: !!!!!!!!!!\n\
 ============================\n'
 
 BASE_URL = 'https://api.trello.com/1/{}'
-BOARD_ID = 'XvaZ3Sb8'                                                               # Вписать свой Board_ID
+BOARD_ID = 'Xv****b8'                                                               # Вписать свой Board_ID
 AUTH_PARAMS = {
-    'key': '48d929e1c42b6c714db9370c6bc474eb',                                      # Вписать свой API_key
-    'token': 'a03c20cba88d5743fb5a691f8c8b76d128a9a4b2f750be86bf47412528da0d5e',    # Вписать свой API_token
+    'key': '48d9****c42b****4db9****6bc4****',                                      # Вписать свой API_key
+    'token': 'a03c****a88d****fb5a****8c8b****28a9****f750****bf47****28da****',    # Вписать свой API_token
 }
 
 def read():
