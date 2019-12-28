@@ -106,7 +106,7 @@ def read():
             if _CARD['idList'] == _LIST_DATA['id']:
                 _CARD_DATA.append(_CARD)
         if _LIST_DATA['twin']:
-            _LIST_NAME = _LIST_DATA['name'] + '__' + str(_LIST_DATA['id'][-4:] + '__')
+            _LIST_NAME = _LIST_DATA['name'] + '__' + str(_LIST_DATA['id'][-4:]) + '__'
         else:
             _LIST_NAME = _LIST_DATA['name']
         if not _CARD_DATA:
