@@ -39,12 +39,12 @@ TWINCARD_MSG = '\n!!!!!!!!!! WARNING !!!!!!!!!!\n\
 BASE_URL = 'https://api.trello.com/1/{}'
 
 #####!!!!! Вписать свой Board_ID !!!!!#####
-BOARD_ID = 'XvaZ3Sb8'
+BOARD_ID = 'Xv****b8'
 
 #####!!!!! Вписать свои API_key и API_token !!!!!#####
 AUTH_PARAMS = {
-    'key': '48d929e1c42b6c714db9370c6bc474eb',
-    'token': 'a03c20cba88d5743fb5a691f8c8b76d128a9a4b2f750be86bf47412528da0d5e',
+    'key': '48d9****c42b****4db9****6bc4****',
+    'token': 'a03c****a88d****fb5a****8c8b****28a9****f750****bf47****28da****',
 }
 
 
