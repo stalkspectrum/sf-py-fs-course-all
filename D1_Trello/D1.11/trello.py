@@ -12,7 +12,6 @@
 именами, такие имена выводятся с добавкой "__N__",
 где N=idShort для карточки и N=id(последние 4 цифры) для колонки(листа).
 '''
-
 import sys
 import requests
 
@@ -40,82 +39,88 @@ TWINCARD_MSG = '\n!!!!!!!!!! WARNING !!!!!!!!!!\n\
 BASE_URL = 'https://api.trello.com/1/{}'
 
 #####!!!!! Вписать свой Board_ID !!!!!#####
-BOARD_ID = 'Xv****b8'
+BOARD_ID = 'XvaZ3Sb8'
 
 #####!!!!! Вписать свои API_key и API_token !!!!!#####
 AUTH_PARAMS = {
-    'key': '48d9****c42b****4db9****6bc4****',
-    'token': 'a03c****a88d****fb5a****8c8b****28a9****f750****bf47****28da****',
+    'key': '48d929e1c42b6c714db9370c6bc474eb',
+    'token': 'a03c20cba88d5743fb5a691f8c8b76d128a9a4b2f750be86bf47412528da0d5e',
 }
 
 
-def find_twins(ini_list):
+def find_twins(INI_LIST):
     ''' Находит в списке карточек или колонок(листов) одинаковые имена и
     отмечает их добавлением нового ключа словаря.
     '''
-    _mod_list = []
-    _have_twins = False
-    for _dict in ini_list:
-        _mod_list.append({**_dict, 'twin': False})
-    for _x in range(len(_mod_list) - 1):
-        if not _mod_list[_x]['twin']:
-            _tested_name = _mod_list[_x]['name']
-            for _y in range(_x + 1, len(_mod_list)):
-                if _mod_list[_y]['name'] == _tested_name:
-                    _mod_list[_x]['twin'] = True
-                    _mod_list[_y]['twin'] = True
-                    _have_twins = True
-    return _mod_list, _have_twins
+    _MOD_LIST = []
+    _HAVE_TWINS = False
+    for _DICT in INI_LIST:
+        _MOD_LIST.append({**_DICT, 'twinName': False})
+    for _X in range(len(_MOD_LIST) - 1):
+        if not _MOD_LIST[_X]['twinName']:
+            _TESTED_NAME = _MOD_LIST[_X]['name']
+            for _Y in range(_X + 1, len(_MOD_LIST)):
+                if _MOD_LIST[_Y]['name'] == _TESTED_NAME:
+                    _MOD_LIST[_X]['twinName'] = True
+                    _MOD_LIST[_Y]['twinName'] = True
+                    _HAVE_TWINS = True
+    return _MOD_LIST, _HAVE_TWINS
 
 
-def find_equals(new_line, old_line):
+def find_equals(NEW_LINE, OLD_LINE):
     ''' Обработка случаев совпадения имени карточки или колонки с уже
     имеющимися на доске. Такие карточки или колонки можно добавлять сколько
     угодно, но теперь для уникальности они создаются под именами с добавкой
     номера в конце: Name__(2), Name__(3), Name__(4), etc.
     '''
-    _dub_factor = 0
-    if new_line == old_line:
-        _dub_factor = 2
-        _new_line_mod = new_line + '__(' + str(_dub_factor) + ')'
-    elif new_line in old_line:
-        _old_line_tuple = old_line.rpartition('__(')
-        if new_line == _old_line_tuple[0]:
-            _line_dubnum = _old_line_tuple[2].rstrip(')')
-            if _line_dubnum.isdecimal():
-                _dub_factor = int(_line_dubnum) + 1
+    _DUB_FACTOR = 0
+    if NEW_LINE == OLD_LINE:
+        _DUB_FACTOR = 2
+        _NEW_LINE_MOD = NEW_LINE + '__(' + str(_DUB_FACTOR) + ')'
+    elif NEW_LINE in OLD_LINE:
+        _OLD_LINE_TUP = OLD_LINE.rpartition('__(')
+        if NEW_LINE == _OLD_LINE_TUP[0]:
+            _LINE_NUM = _OLD_LINE_TUP[2].rstrip(')')
+            if _LINE_NUM.isdecimal():
+                _DUB_FACTOR = int(_LINE_NUM) + 1
             else:
-                _dub_factor = 2
-            _new_line_mod = new_line + '__(' + str(_dub_factor) + ')'
+                _DUB_FACTOR = 2
+            _NEW_LINE_MOD = NEW_LINE + '__(' + str(_DUB_FACTOR) + ')'
         else:
-            _new_line_mod = new_line
+            _NEW_LINE_MOD = NEW_LINE
     else:
-        _new_line_mod = new_line
-    return _new_line_mod, _dub_factor
+        _NEW_LINE_MOD = NEW_LINE
+    return _NEW_LINE_MOD, _DUB_FACTOR
 
 
 def read():
+    ''' Функция для вывода на консоль списка всех колонок(листов) и карточек
+    в них для текущей доски. Если на доске встречаются карточки и/или
+    колонки(листы) с одинаковыми именами, такие имена выводятся
+    с добавкой "__N__", где N=idShort для карточки и N=id(последние 4 цифры)
+    для колонки(листа).
+    '''
     if HAVE_TWINLIST:
         print(TWINLIST_MSG)
     if HAVE_TWINCARD:
         print(TWINCARD_MSG)
     print('\nНа этой доске', len(MOD_LISTS_DATA), 'колонок(ки):\n')
-    for _NUM, _LIST_DATA in enumerate(MOD_LISTS_DATA):
+    for _NUM, _LIST in enumerate(MOD_LISTS_DATA):
         _CARD_DATA = []
         for _CARD in MOD_CARDS_DATA:
-            if _CARD['idList'] == _LIST_DATA['id']:
+            if _CARD['idList'] == _LIST['id']:
                 _CARD_DATA.append(_CARD)
-        if _LIST_DATA['twin']:
-            _LIST_NAME = _LIST_DATA['name'] + '__' + str(_LIST_DATA['id'][-4:]) + '__'
+        if _LIST['twinName']:
+            _LIST_NAME = _LIST['name'] + '__' + str(_LIST['id'][-4:]) + '__'
         else:
-            _LIST_NAME = _LIST_DATA['name']
+            _LIST_NAME = _LIST['name']
         if not _CARD_DATA:
             print('{}) \"{}\" -- нет задач'.format(str(_NUM + 1), _LIST_NAME))
             continue
         else:
             print('{}) \"{}\" -- есть {} задач(и):'.format(str(_NUM + 1), _LIST_NAME, str(len(_CARD_DATA))))
             for _CARD in _CARD_DATA:
-                if _CARD['twin']:
+                if _CARD['twinName']:
                     _CARD_NAME = _CARD['name'] + '__' + str(_CARD['idShort']) + '__'
                 else:
                     _CARD_NAME = _CARD['name']
@@ -129,12 +134,12 @@ def new_list(LIST_NAME):
     _NEW_LIST_NAME = LIST_NAME
 
     #####----- Обработка совпадающих имён колонок(листов) -----#####
-    _DUP_MAX = 0
-    for _LISTS_DATA in INI_LISTS_DATA:
-        _DUP_NUM = find_equals(LIST_NAME, _LISTS_DATA['name'])[1]
-        if _DUP_MAX < _DUP_NUM:
-            _DUP_MAX = _DUP_NUM
-            _NEW_LIST_NAME = LIST_NAME + '__(' + str(_DUP_MAX) + ')'
+    _DUB_MAX = 0
+    for _LIST in MOD_LISTS_DATA:
+        _DUB_NUM = find_equals(LIST_NAME, _LIST['name'])[1]
+        if _DUB_MAX < _DUB_NUM:
+            _DUB_MAX = _DUB_NUM
+            _NEW_LIST_NAME = LIST_NAME + '__(' + str(_DUB_MAX) + ')'
 
     #####----- Создание колонки(листа) на текущей доске -----#####
     requests.post(BASE_URL.format('lists'), data={'name': _NEW_LIST_NAME, 'idBoard': _ID_BOARD, **AUTH_PARAMS})
@@ -144,38 +149,77 @@ def new_card(CARD_NAME, LIST_NAME):
     ''' Функция для создания карточки в указанной колонке(листе)
     '''
     _NEW_CARD_NAME = CARD_NAME
+    _LIST_ID = None
+    _LISTSET = {}
 
     #####----- Обработка совпадающих имён карточек -----#####
-    _DUP_MAX = 0
-    for _CARDS_DATA in INI_CARDS_DATA:
-        _DUP_NUM = find_equals(CARD_NAME, _CARDS_DATA['name'])[1]
-        if _DUP_MAX < _DUP_NUM:
-            _DUP_MAX = _DUP_NUM
-            _NEW_CARD_NAME = CARD_NAME + '__(' + str(_DUP_MAX) + ')'
+    _DUB_MAX = 0
+    for _CARD in MOD_CARDS_DATA:
+        _DUB_NUM = find_equals(CARD_NAME, _CARD['name'])[1]
+        if _DUB_MAX < _DUB_NUM:
+            _DUB_MAX = _DUB_NUM
+            _NEW_CARD_NAME = CARD_NAME + '__(' + str(_DUB_MAX) + ')'
+
+    #####----- Обработка совпадающих имён колонок(листов), где создать карточку -----#####
+    for _LIST in MOD_LISTS_DATA:
+        if _LIST['name'] == LIST_NAME:
+            if _LIST['twinName']:
+                _LISTSET[_LIST['id'][-4:]] = [ _LIST['id'], _LIST['name'] ]
+                print('ID=' + _LIST['id'][-4:] + ' - ' + '\"' + _LIST['name'] + '__' + _LIST['id'][-4:] + '__')
+            else:
+                _LIST_ID = _LIST['id']
+                break
+    if not _LIST_ID:
+        _CHOSEN_LIST_ID = input('Из вышеприведённого списка введите ID колонки(листа), в котором надо создать карточку: ')
+        _LIST_ID = _LISTSET[_CHOSEN_LIST_ID][0]
 
     #####----- Создание карточки в указанной колонке(листе) -----#####
-    for _LIST_DATA in INI_LISTS_DATA:
-        if _LIST_DATA['name'] == LIST_NAME:
-            requests.post(BASE_URL.format('cards'), data={'name': _NEW_CARD_NAME, 'idList': _LIST_DATA['id'], **AUTH_PARAMS})
-            break
+    requests.post(BASE_URL.format('cards'), data={'name': _NEW_CARD_NAME, 'idList': _LIST_ID, **AUTH_PARAMS})
 
 
 def move_card(CARD_NAME, LIST_NAME):
-    ''' Функция для перемещения карточки в указанную колонку(лист)
+    ''' Функция для перемещения карточки в указанную колонку(лист). Если на
+    доске есть несколько карточек с таким именем, предлагает выбрать конкретную
+    карточку по ID из списка. Если есть несколько колонок(листов)
+    с одинаковыми именами, аналогично предлагает выбрать конкретную
+    колонку(лист) по ID из списка, куда перемещать карточку.
     '''
     _CARD_ID = None
-    for _LIST_DATA in INI_LISTS_DATA:
-        _LIST_CARDS = requests.get(BASE_URL.format('lists') + '/' + _LIST_DATA['id'] + '/cards', params=AUTH_PARAMS).json()
-        for _CARD in _LIST_CARDS:
-            if _CARD['name'] == CARD_NAME:
+    _LIST_ID = None
+    _CARDSET = {}
+    _LISTSET = {}
+
+    #####----- Обработка совпадающих имён карточек -----#####
+    for _CARD in MOD_CARDS_DATA:
+        if _CARD['name'] == CARD_NAME:
+            if _CARD['twinName']:
+                for _LIST in MOD_LISTS_DATA:
+                    if _LIST['id'] == _CARD['idList']:
+                        _CARDSET[_CARD['idShort']] = [ _CARD['id'], _CARD['name'], _LIST['id'], _LIST['name'] ]
+                        break
+                print('ID=' + str(_CARD['idShort']) + ' - ' + '\"' + _CARD['name'] + '__' + str(_CARD['idShort']) + '__\" в колонке \"' + _CARDSET[_CARD['idShort']][3] + '\"')
+            else:
                 _CARD_ID = _CARD['id']
                 break
-        if _CARD_ID:
-            break
-    for _LIST_DATA in INI_LISTS_DATA:
-        if _LIST_DATA['name'] == LIST_NAME:
-            requests.put(BASE_URL.format('cards') + '/' + _CARD_ID + '/idList', data={'value': _LIST_DATA['id'], **AUTH_PARAMS})
-            break
+    if not _CARD_ID:
+        _CHOSEN_CARD_ID = int(input('Из вышеприведённого списка введите ID карточки (только число), которую надо переместить: '))
+        _CARD_ID = _CARDSET[_CHOSEN_CARD_ID][0]
+
+    #####----- Обработка совпадающих имён колонок(листов) -----#####
+    for _LIST in MOD_LISTS_DATA:
+        if _LIST['name'] == LIST_NAME:
+            if _LIST['twinName']:
+                _LISTSET[_LIST['id'][-4:]] = [ _LIST['id'], _LIST['name'] ]
+                print('ID=' + _LIST['id'][-4:] + ' - ' + '\"' + _LIST['name'] + '__' + _LIST['id'][-4:] + '__')
+            else:
+                _LIST_ID = _LIST['id']
+                break
+    if not _LIST_ID:
+        _CHOSEN_LIST_ID = input('Из вышеприведённого списка введите ID колонки(листа), в которой надо переместить карточку: ')
+        _LIST_ID = _LISTSET[_CHOSEN_LIST_ID][0]
+
+    #####----- Перемещение карточки в указанную колонку(лист) -----#####
+    requests.put(BASE_URL.format('cards') + '/' + _CARD_ID + '/idList', data={'value': _LIST_ID, **AUTH_PARAMS})
 
 
 if __name__ == '__main__':
