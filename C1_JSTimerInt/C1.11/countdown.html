@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Countdown task</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <META name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="countdown.css">
+</head>
+<body>
+    <h1 class="countdown-title">Countdown Clock</h1>
+    <section class="countdown">
+        <div class="countdown-number">
+            <p class="minutes countdown-time"></p>
+            <P>&#9650;&nbsp;&#9660;</P>
+            <p class="countdown-text">Minutes</p>
+        </div>
+        <div class="countdown-number">
+            <p class="seconds countdown-time"></p>
+            <P>&#9650;&nbsp;&#9660;</P>
+            <p class="countdown-text">Seconds</p>
+        </div>
+    </section>
+    <div>
+        <button class="plus">Plus</button>
+        <button class="minus">Minus</button>
+        <button class="start">Start</button>
+    </div>
+    <div class="message"></div>
+    <script src="countdown.js"></script>
+</body>
+</html>
