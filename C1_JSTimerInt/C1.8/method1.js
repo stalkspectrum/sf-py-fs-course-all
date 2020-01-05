@@ -21,15 +21,12 @@ jQuery.prototype.remove = function() {
     return this;
 }
 
-jQuery.prototype.html = function(newText) {
-    if (newText) {
-        this.each(element => element.innerHTML = newText);
+jQuery.prototype.html = function(newHtml) {
+    if (newHtml) {
+        this.each(element => element.innerHTML = newHtml);
         return this;
     }
-    else {
-        //console.log(this.elements[0].innerHTML);
-        console.log(this.elements[0].innerHTML);
-    }
+    else return this.elements[0].innerHTML;
 }
 
 jQuery.prototype.text = function(newText) {
@@ -37,30 +34,5 @@ jQuery.prototype.text = function(newText) {
         this.each(element => element.innerText = newText);
         return this;
     }
-    else {
-        //const strr = this.elements[0].innerHTML;
-        console.log(this.elements[0].innerText);
-    }
+    else return this.elements[0].innerText;
 }
-
-/*
-const but = document.querySelector('button');
-
-function main(selector) {
-    this.element = document.querySelector(selector);
-    return this
-}
-
-main.prototype.click = function(fn) {
-    this.element.addEventListener('click', fn);
-    return this
-}
-
-main.prototype.disable = function() {
-    this.element.disabled = true;
-    return this
-}
-
-const $ = (e) => new jQuery(e);
-$('button').click(e => console.log(e.target));
-*/

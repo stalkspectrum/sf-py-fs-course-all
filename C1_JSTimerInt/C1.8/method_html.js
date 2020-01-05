@@ -19,7 +19,7 @@ jQuery.prototype.html = function(newHtml) {
         return this;
     }
     else {
-        console.log(this.elements[0].innerHTML);
+        return this.elements[0].innerHTML;
     }
 }
 
@@ -30,11 +30,10 @@ const $ = (e) => new jQuery(e);
 
     $('sel').html('<b><u>New HTML code inside selected tag</u></b>')
 
-    Если метод без аргументов:
+    Метод без аргументов возвращает текущее содержимое, например:
 
-    $('sel').html()
-    
-    то в консоль выводится HTML-содержимое внутренностей тэга.
+    console.log($('sel').html())
+    выводит в консоль HTML-содержимое внутренностей тэга.
 
     На крайний случай, если в задании подразумевалось возвращать или изменять
     не только внутренности тэга, а весь тэг целиком, тогда в методе надо

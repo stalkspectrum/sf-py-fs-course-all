@@ -5,5 +5,6 @@ const $ = (e) => new jQuery(e);
 
 //$('button').click($('h1') => $('h1').remove());
 
-$('.message').html('<b><u><i>Message line</i></u></b>');
+//$('.message').html('<b><u><i>Message line</i></u></b>');
+console.log($('.message').html());
 //$('.message').text('<b><u>Message line</u></b>');

@@ -18,9 +18,7 @@ jQuery.prototype.text = function(newText) {
         this.each(element => element.innerText = newText);
         return this;
     }
-    else {
-        console.log(this.elements[0].innerText);
-    }
+    else return this.elements[0].innerText;
 }
 
 const $ = (e) => new jQuery(e);
@@ -30,6 +28,7 @@ const $ = (e) => new jQuery(e);
 
     $('sel').text('New text inside selected tag')
 
-    Если метод без аргументов:
-    $('sel').text()
-    то в консоль выводится текстовое содержимое внутренностей тэга. */
+    Метод без аргументов возвращает текущее содержимое, например:
+
+    console.log($('sel').text())
+    выводит в консоль текстовое содержимое внутренностей тэга. */
