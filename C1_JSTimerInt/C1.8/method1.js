@@ -21,12 +21,22 @@ jQuery.prototype.remove = function() {
     return this;
 }
 
+jQuery.prototype.hide = function() {
+    this.each(element => element.style.display = 'none');
+    return this;
+}
+
+jQuery.prototype.show = function() {
+    this.each(element => element.style.display = '');
+    return this;
+}
+
 jQuery.prototype.html = function(newHtml) {
     if (newHtml) {
         this.each(element => element.innerHTML = newHtml);
         return this;
     }
-    else return this.elements[0].innerHTML;
+    return this.elements[0].innerHTML;
 }
 
 jQuery.prototype.text = function(newText) {
@@ -34,5 +44,5 @@ jQuery.prototype.text = function(newText) {
         this.each(element => element.innerText = newText);
         return this;
     }
-    else return this.elements[0].innerText;
+    return this.elements[0].innerText;
 }
