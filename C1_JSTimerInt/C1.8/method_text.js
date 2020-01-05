@@ -18,7 +18,7 @@ jQuery.prototype.text = function(newText) {
         this.each(element => element.innerText = newText);
         return this;
     }
-    else return this.elements[0].innerText;
+    return this.elements[0].innerText;
 }
 
 const $ = (e) => new jQuery(e);

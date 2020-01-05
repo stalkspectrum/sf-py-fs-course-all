@@ -18,9 +18,7 @@ jQuery.prototype.html = function(newHtml) {
         this.each(element => element.innerHTML = newHtml);
         return this;
     }
-    else {
-        return this.elements[0].innerHTML;
-    }
+    return this.elements[0].innerHTML;
 }
 
 const $ = (e) => new jQuery(e);
