@@ -1,8 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Red+Hat+Display&display=swap);
-
 body {
-    background-color: rgb(135, 110, 215);
-    font-family: "Red Hat Display", sans-serif;
+    background-color: rgb(35, 110, 215);
+    font-family: "Arial", sans-serif;
     font-weight: 100;
     text-align: center;
 }
@@ -11,14 +9,16 @@ p {
     margin: 0;
 }
 
-.countdown-title {
-    color: rgb(57, 20, 175);
-    font-size: 40px;
-    font-weight: 100;
-    margin: 40px 0px 20px;
+button {
+    background-color: white;
+    border: 2px solid rgb(65, 44, 132);
+    border-radius: 5px;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 5px 5px;
 }
 
-.countdown {
+section {
     color: #ffffff;
     display: inline-block;
     font-size: 30px;
@@ -27,14 +27,14 @@ p {
 }
 
 .countdown-number {
-    background-color: rgb(106, 72, 215);
+    background-color: rgb(6, 72, 215);
     border-radius: 3px;
     display: inline-block;
     padding: 10px;
 }
 
 .countdown-time {
-    background-color: rgb(65, 44, 132);
+    background-color: rgb(5, 44, 132);
     border-radius: 3px;
     display: inline-block;
     padding: 15px;
@@ -46,16 +46,8 @@ p {
     padding-top: 5px;
 }
 
-.button {
-    background-color: white;
-    border: 2px solid rgb(65, 44, 132);
-    border-radius: 5px;
-    margin-top: 30px;
-    padding: 8px 10px;
-}
-
 .message {
-    color: rgb(57, 20, 175);
-    font-size: 28px;
-    font-weight: 400;
+    font-size: 30px;
+    font-weight: 700;
+    padding-top: 5px;
 }
