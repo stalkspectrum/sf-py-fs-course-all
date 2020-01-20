@@ -2,14 +2,14 @@ import sys
 import requests
 
 auth_params = {
-    'key': '48d929e1c42b6c714db9370c6bc474eb',
-    'token': 'a03c20cba88d5743fb5a691f8c8b76d128a9a4b2f750be86bf47412528da0d5e',
+    'key': '48d9****c42b****4db9****6bc4****',
+    'token': 'a03c****a88d****fb5a****8c8b****28a9****f750****bf47****28da****',
 }
 
 base_url = 'https://api.trello.com/1/{}'
 #URL = 'https://trello.com/b/XvaZ3Sb8/created-with-pythoncli'
 #board_id = '5e00c85889c386305ff34cb8'
-board_id = 'XvaZ3Sb8'
+board_id = 'Xv****b8'
 
 def read():
     column_data = requests.get(base_url.format('boards') + '/' + board_id + '/lists', params=auth_params).json()
