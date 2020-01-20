@@ -7,8 +7,6 @@ auth_params = {
 }
 
 base_url = 'https://api.trello.com/1/{}'
-#URL = 'https://trello.com/b/XvaZ3Sb8/created-with-pythoncli'
-#board_id = '5e00c85889c386305ff34cb8'
 board_id = 'Xv****b8'
 
 def read():
