@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>B6.13 Домашнее задание</TITLE>
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8"/>
+</HEAD>
+<BODY>
+    <H1>Пункты задания</H1>
+    <P>1) Вэб-сервер с дефолтной базой может принимать GET-запросы по URL:</P>
+    <UL>
+        <LI><A HREF="/albums/Beatles">http://localhost:8080/albums/Beatles</A></LI>
+        <LI><A HREF="/albums/The%20Rolling%20Stones">http://localhost:8080/albums/The Rolling Stones</A></LI>
+        <LI><A HREF="/albums/Queen">http://localhost:8080/albums/Queen</A></LI>
+        <LI><A HREF="/albums/Gentle%20Giant">http://localhost:8080/albums/Gentle Giant</A></LI>
+        <LI><A HREF="/albums/Pink%20Floyd">http://localhost:8080/albums/Pink Floyd</A></LI>
+        <LI><A HREF="/albums/Christina%20Aguilera">http://localhost:8080/albums/Christina Aguilera</A></LI>
+        <LI><A HREF="/albums/Kamasi%20Washington">http://localhost:8080/albums/Kamasi Washington</A></LI>
+    </UL>
+    <P>и выводит на экран сообщение с количеством альбомов исполнителя (группы) и списком названий альбомов.</P>
+    <P>Дополнительно для отладки на <A HREF="/albums/all">http://localhost:8080/albums/all</A> в любой момент отражается вся текущая база альбомов, в том числе и свежедобавленные строки.</P>
+    <HR>
+    <P>2) Вэб-сервер изначально (до внесения дополнений) принимает POST-запросы по URL http://localhost:8080/albums/ и сохраняет введённые данные в базе.</P>
+    <P>Если пользователь пытается передать данные об альбоме, который уже есть в базе данных (<EM>проверяется на уникальность пара artist-album, у разных артистов могут быть альбомы с одинаковым названием</EM>), обработчик запроса отвечает HTTP-ошибкой 409 и выводит соответствующее сообщение.</P>
+    <DIV><P>Можно делать POST-запросы не через утилиту из <B>httpie</B>, а через данную форму:</P></DIV>
+    <FORM ID="formalbum" STYLE="background: #ddddff; padding: 10px" ACTION="/albums" METHOD="post">
+        <P>
+            <LABEL>Артист или группа:&nbsp;&nbsp;<INPUT NAME="artist" FORM="formalbum" TYPE="text" PLACEHOLDER="Blackmore's Night" REQUIRED SIZE="50"></LABEL>(Обязательно для заполнения)
+        </P>
+        <P>
+            <LABEL>Название альбома:&nbsp;&nbsp;<INPUT NAME="album" FORM="formalbum" TYPE="text" PLACEHOLDER="A Knight In York" REQUIRED SIZE="50"></LABEL>(Обязательно для заполнения)
+        </P>
+        <P>
+            <LABEL>Год записи (1950-2020):&nbsp;&nbsp;<INPUT NAME="year" FORM="formalbum" TYPE="number" MIN="1950" MAX="2020" MAXLENGTH="4"></LABEL>
+        </P>
+        <P>
+            <LABEL>Музыкальный жанр:&nbsp;&nbsp;
+            <SELECT FORM="formalbum" NAME="genre" SIZE="1">
+                <OPTION VALUE="---" SELECTED>-----Other-----</OPTION>
+                <OPTION VALUE="Art rock">Art Rock</OPTION>
+                <OPTION VALUE="Blues">Blues</OPTION>
+                <OPTION VALUE="Chanson">Chanson</OPTION>
+                <OPTION VALUE="Country">Country</OPTION>
+                <OPTION VALUE="Disco">Disco</OPTION>
+                <OPTION VALUE="Electronic">Electronic</OPTION>
+                <OPTION VALUE="Folk Rock">Folk</OPTION>
+                <OPTION VALUE="Hard rock">Hard Rock</OPTION>
+                <OPTION VALUE="Heavy metal rock">Heavy Metal Rock</OPTION>
+                <OPTION VALUE="Jazz">Jazz</OPTION>
+                <OPTION VALUE="Pop">Pop</OPTION>
+                <OPTION VALUE="Progressive rock">Progressive Rock</OPTION>
+                <OPTION VALUE="Psychedelic rock">Psychedelic Rock</OPTION>
+                <OPTION VALUE="Rap">Rap</OPTION>
+                <OPTION VALUE="Reggae">Reggae</OPTION>
+                <OPTION VALUE="Rhythm and blues">Rhythm and Blues</OPTION>
+                <OPTION VALUE="Rock and roll">Rock'n'Roll</OPTION>
+                <OPTION VALUE="Soul">Soul</OPTION>
+                <OPTION VALUE="Techno">Techno</OPTION>
+            </SELECT>
+            </LABEL>
+        </P>
+        <P>
+            <INPUT TYPE="submit" VALUE="Добавить в базу">
+        </P>
+    </FORM>
+    <HR>
+    <H2>Некоторые пояснения</H2>
+    <P>При вводе через форму поле <B>year</B> принимает только числа в диапазоне 1950-2020. Если через <B>httpie</B>, то в случае ошибки преобразования введённой строки в числовой формат, <B>year</B> определяется как <B>None</B>.</P>
+    <P>Для удобства, единообразия заполнения и разнообразия в задании, <B>genre</B> задаётся через выпадающий список, дабы не плодить сущности</P>
+    <P>Не решена проблема кодировок при вводе русских названий.</P>
+    <P></P>
+    <P></P>
+</BODY>
+</HTML>

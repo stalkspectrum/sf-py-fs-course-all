@@ -1,0 +1,8 @@
+WARNING:root:Warning test message
+ERROR:root:Error test message
+CRITICAL:root:Critical test message
+Debug test message
+Info test message
+Warning test message
+Error test message
+Critical test message

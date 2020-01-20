@@ -1,0 +1,9 @@
+Install our Python SDK using pip:
+$ pip install --upgrade sentry-sdk==0.13.5
+
+Import and initialize the Sentry SDK early in your application’s setup:
+import sentry_sdk
+sentry_sdk.init("https://28c195fe195c45a8945de3ef9c26956f@sentry.io/1850837")
+
+You can cause a Python error by inserting a divide by zero expression into your application:
+division_by_zero = 1 / 0
