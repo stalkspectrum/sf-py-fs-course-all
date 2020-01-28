@@ -1,0 +1,14 @@
+{
+  "name": "c2_project1",
+  "version": "1.0.0",
+  "description": "C2 test project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "sTALK_specTrum",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
