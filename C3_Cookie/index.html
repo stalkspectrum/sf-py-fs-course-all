@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <TITLE>Cookies task</TITLE>
+    <META CHARSET="utf-8">
+    <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=utf-8">
+    <META NAME="viewport" CONTENT="width=device-width, initial-scale=1.0">
+    <LINK REL="stylesheet" HREF="css/styles.css">
+</HEAD>
+<BODY>
+    <H1>Задание 1</H1>
+    <DIV ID="task1">
+        <DIV ID="subdiv11">
+            <LABEL>Введите ваш город:&nbsp;&nbsp;<INPUT ID="yourCity" TYPE="text" REQUIRED SIZE="50" PLACEHOLDER="Введите название населённого пункта"></LABEL>
+            <P>и перезагрузите (или заново откройте) страницу. Увидите, что получится.</P>
+            <P>Потом можно нажать кнопку для очистки и снова перезагрузить страницу.</P>
+        </DIV>
+        <DIV ID="subdiv12"></DIV>
+        <BR>
+        <BUTTON ID="goaway">Очистить</BUTTON>
+    </DIV>
+    <HR>
+    <H1>Задание 2</H1>
+    <DIV ID="task2">
+        <DIV ID="subdiv21">
+            <LABEL ID="label1"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb1">Python - это не зелёный змий</LABEL><BR>
+            <LABEL ID="label2"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb2">Здесь вам не тут</LABEL><BR>
+            <LABEL ID="label3"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb3">Никотин - витамин! Кто не курит, тот кретин.</LABEL><BR>
+            <LABEL ID="label4"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb4">Тупить в JavaScript вредно</LABEL><BR>
+            <LABEL ID="label5"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb5">Горизонтальный отдых полезен</LABEL><BR>
+            <LABEL ID="label6"><INPUT TYPE="checkbox" NAME="t2cb" ID="cb6">Надо успевать в срок</LABEL><BR>
+        </DIV>
+        <DIV ID="subdiv22">
+            <P>Можно почекать боксы в любом сочетании, нажать "Сохранить" и перезагрузить страницу.</P>
+            <P>После перезагрузки состояние зальётся гранитом без возможности изменения.</P>
+            <BUTTON ID="savestate">Сохранить</BUTTON>
+        </DIV>
+        <DIV ID="subdiv23">
+            <P>Вообще-то ничего изменить уже нельзя, но если очень хочется, то вот секретная кнопка:</P>
+            <BUTTON ID="forgetit">Стереть ненужные знания</BUTTON>
+        </DIV>
+    </DIV>
+    <SCRIPT SRC="js/myjquery.js"></SCRIPT>
+    <SCRIPT SRC="js/cookie.js"></SCRIPT>
+</BODY>
+</HTML>
