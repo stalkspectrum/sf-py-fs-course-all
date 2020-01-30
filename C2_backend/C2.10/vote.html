@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<HTML LANG="ru">
+<HEAD>
+    <LINK REL="stylesheet" HREF="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" INTEGRITY="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" CROSSORIGIN="anonymous">
+    <SCRIPT SRC="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></SCRIPT>
+    <STYLE>
+        body { margin: 5vh 10vw; text-align: center; }
+        .votebutton { display: inline-block; margin: 10px; }
+    </STYLE>
+</HEAD>
+<BODY>
+    <H1>Избирательный пункт</H1>
+    <DIV CLASS="votebutton button">
+        <A ID="vote-cats" CLASS="btn btn-lg btn-primary active" ROLE="button" ARIA-PRESSED="true">Голосуй за кошек</A>
+    </DIV>
+    <DIV CLASS="votebutton button">
+        <A ID="vote-dogs" CLASS="btn btn-lg btn-success active" ROLE="button" ARIA-PRESSED="true">Голосуй за собак</A>
+    </DIV>
+    <DIV CLASS="votebutton button">
+        <A ID="vote-parrots" CLASS="btn btn-lg btn-danger active" ROLE="button" ARIA-PRESSED="true">Голосуй за попугаев</A>
+    </DIV>
+    <H2><A HREF="./result.html">Посмотреть результат</A></H2>
+    <SCRIPT>
+        const postURL = new URL('https://sf-pyw.mosyag.in/sse/vote/');
+        let postVoteForPets = new XMLHttpRequest();
+
+        function postVoteFor(petName) {
+            postVoteForPets.open('POST', postURL + petName, true);
+            postVoteForPets.send();
+        };
+
+        $('#vote-cats').click(function() { postVoteFor('cats') });
+        $('#vote-dogs').click(function() { postVoteFor('dogs') });
+        $('#vote-parrots').click(function() { postVoteFor('parrots') });
+    </SCRIPT>
+</BODY>
+</HTML>
