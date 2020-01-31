@@ -8,21 +8,59 @@
     </STYLE>
 </HEAD>
 <BODY>
-    <SECTION CLASS="mt-5">
+    <H4>Голоса за партию милых котиков:</H4>
+    <SECTION>
         <DIV CLASS="progress" STYLE="height: 40px; font-size: 20px; font-weight: bold">
             <DIV ID="cats-result-bar" CLASS="progress-bar" ROLE="progressbar" STYLE="width: 0%" ARIA-VALUENOW="0" ARIA-VALUEMAX="100"></DIV>
         </DIV>
     </SECTION>
-    <SECTION CLASS="mt-5">
+    <H4 CLASS="mt-5">Голоса за партию верных пёсиков:</H4>
+    <SECTION>
         <DIV CLASS="progress" STYLE="height: 40px; font-size: 20px; font-weight: bold">
             <DIV ID="dogs-result-bar" CLASS="progress-bar bg-success" ROLE="progressbar" STYLE="width: 0%" ARIA-VALUENOW="0"></DIV>
         </DIV>
     </SECTION>
-    <SECTION CLASS="mt-5">
+    <H4 CLASS="mt-5">Голоса за партию брехливых кросавчегов:</H4>
+    <SECTION>
         <DIV CLASS="progress" STYLE="height: 40px; font-size: 20px; font-weight: bold">
             <DIV ID="parrots-result-bar" CLASS="progress-bar bg-danger" ROLE="progressbar" STYLE="width: 0%" ARIA-VALUENOW="0"></DIV>
         </DIV>
     </SECTION>
-    <SCRIPT SRC="./result.js"></SCRIPT>
+    <SCRIPT>
+        const header = new Headers({
+            'Access-Control-Allow-Credentials': true,
+            'Access-Control-Allow-Origin': '*'
+        });
+        const catsResult = document.querySelector('#cats-result-bar');
+        const dogsResult = document.querySelector('#dogs-result-bar');
+        const parrotsResult = document.querySelector('#parrots-result-bar');
+        
+        const urlResult = new URL('https://sf-pyw.mosyag.in/sse/vote/stats');
+        const streamResult = new EventSource(urlResult, header);
+        
+        streamResult.onopen = event => console.log(event);
+
+        streamResult.onmessage = message => {
+            let messageDict = JSON.parse(message.data)
+            let barWidth = Math.max(messageDict.cats, messageDict.dogs, messageDict.parrots) + 100;
+            let totalVotes = messageDict.cats + messageDict.dogs + messageDict.parrots;
+
+            let catsPerCent = 100 * messageDict.cats / barWidth;
+            let dogsPerCent = 100 * messageDict.dogs / barWidth;
+            let parrotsPerCent = 100 * messageDict.parrots / barWidth;
+
+            let cats146pc = Math.round(100 * messageDict.cats / totalVotes);
+            let dogs146pc = Math.round(100 * messageDict.dogs / totalVotes);
+
+            catsResult.style.cssText = `width: ${catsPerCent}%`;
+            catsResult.textContent = `${messageDict.cats} (${cats146pc}%)`;
+
+            dogsResult.style.cssText = `width: ${dogsPerCent}%`;
+            dogsResult.textContent = `${messageDict.dogs} (${dogs146pc}%)`;
+
+            parrotsResult.style.cssText = `width: ${parrotsPerCent}%`;
+            parrotsResult.textContent = `${messageDict.parrots} (146%)`;
+        };
+    </SCRIPT>
 </BODY>
 </HTML>
