@@ -11,8 +11,8 @@ def books_list(request):
 
 def index(request):
     template = loader.get_template('index.html')
-    books_count = Book.objects.all().count()
     books = Book.objects.all()
+    books_count = books.count()
     numbers = [ str(x) for x in range(1, 101) ]
     biblio_data = {
         'title': 'мою библиотеку',
