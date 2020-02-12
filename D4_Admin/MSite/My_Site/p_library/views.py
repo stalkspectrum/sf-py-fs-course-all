@@ -3,11 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 
 from django.shortcuts import redirect
-from p_library.models import Book
-
-def books_list(request):
-    books = Book.objects.all()
-    return HttpResponse(books)
+from p_library.models import Book, Publisher
 
 def index(request):
     template = loader.get_template('index.html')
@@ -20,6 +16,18 @@ def index(request):
         'numbers': numbers,
     }
     return HttpResponse(template.render(biblio_data, request))
+
+def publishers_list(request):
+    template = loader.get_template('publishers.html')
+    publishers = Publisher.objects.all()
+    publish_data = {
+        'publishers': publishers,
+    }
+    return HttpResponse(template.render(publish_data, request))
+
+def books_list(request):
+    books = Book.objects.all()
+    return HttpResponse(books)
 
 def book_increment(request):
     if request.method == 'POST':
