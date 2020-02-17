@@ -1,0 +1,38 @@
+Добро пожаловать в {{ title }}. <BR>
+Тут собрано {{ books|length }} книг из моей личной коллекции.
+
+<TABLE BORDER="1">
+    {% for book in books %}
+    <TR>
+        <TD>{{ forloop.counter }}</TD>
+        <TD>{{ book.title }}</TD>
+        <TD>{{ book.ISBN }}</TD>
+        <TD>{{ book.description }}</TD>
+        <TD>{{ book.year_release }}</TD>
+        <TD>{{ book.author.full_name }}</TD>
+        <TD>{{ book.author.country }}</TD>
+        <TD>{{ book.copy_count }}</TD>
+        <TD>
+            <FORM ACTION="/index/book_increment/" METHOD="post" ENCTYPE="multipart/form-data">
+                {% csrf_token %}
+                <INPUT TYPE="hidden" NAME="id" VALUE="{{ book.id }}">
+                <INPUT TYPE="submit" VALUE="Увеличить кол-во">
+            </FORM>
+            <FORM ACTION="/index/book_decrement/" METHOD="post" ENCTYPE="multipart/form-data">
+                {% csrf_token %}
+                <INPUT TYPE="hidden" NAME="id" VALUE="{{ book.id }}">
+                <INPUT TYPE="submit" VALUE="Уменьшить кол-во">
+            </FORM>
+        </TD>
+    </TR>
+    {% endfor %}
+</TABLE>
+<P>Вывод чисел от 1 до 100, кратных 3</P>
+{% load test_third_only %}
+<TABLE BORDER="1">
+    {% for num in numbers %}
+        {% if num|only3rd %}
+        <TR><TD>{{ num }}</TD></TR>
+        {% endif %}
+    {% endfor %}
+</TABLE>
