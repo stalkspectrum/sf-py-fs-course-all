@@ -1,0 +1,82 @@
+[
+    {
+        "email": "Sincere@april.biz",
+        "id": 1,
+        "name": "Leanne Graham",
+        "registered": "2019-06-06 15:27:19",
+        "username": "Bret",
+        "website": "hildegard.org"
+    },
+    {
+        "email": "Shanna@melissa.tv",
+        "id": 2,
+        "name": "Ervin Howell",
+        "registered": "2019-04-13 07:25:27",
+        "username": "Antonette",
+        "website": "anastasia.net"
+    },
+    {
+        "email": "Nathan@yesenia.net",
+        "id": 3,
+        "name": "Clementine Bauch",
+        "registered": "2019-05-28 18:13:02",
+        "username": "Samantha",
+        "website": "ramiro.info"
+    },
+    {
+        "email": "Julianne.OConner@kory.org",
+        "id": 4,
+        "name": "Patricia Lebsack",
+        "registered": "2019-01-28 20:54:53",
+        "username": "Karianne",
+        "website": "kale.biz"
+    },
+    {
+        "email": "Lucio_Hettinger@annie.ca",
+        "id": 5,
+        "name": "Chelsey Dietrich",
+        "registered": "2019-06-29 09:06:30",
+        "username": "Kamren",
+        "website": "demarco.info"
+    },
+    {
+        "email": "Karley_Dach@jasper.info",
+        "id": 6,
+        "name": "Mrs. Dennis Schulist",
+        "registered": "2019-04-19 17:13:23",
+        "username": "Leopoldo_Corkery",
+        "website": "ola.org"
+    },
+    {
+        "email": "Telly.Hoeger@billy.biz",
+        "id": 7,
+        "name": "Kurtis Weissnat",
+        "registered": "2019-06-27 07:31:42",
+        "username": "Elwyn.Skiles",
+        "website": "elvis.io"
+    },
+    {
+        "email": "Sherwood@rosamond.me",
+        "id": 8,
+        "name": "Nicholas Runolfsdottir V",
+        "registered": "2019-03-17 19:36:56",
+        "username": "Maxime_Nienow",
+        "website": "jacynthe.com"
+    },
+    {
+        "email": "Chaim_McDermott@dana.io",
+        "id": 9,
+        "name": "Glenna Reichert",
+        "registered": "2019-06-20 23:43:16",
+        "username": "Delphine",
+        "website": "conrad.com"
+    },
+    {
+        "email": "Rey.Padberg@karina.biz",
+        "id": 10,
+        "name": "Clementina DuBuque",
+        "registered": "2019-06-09 19:24:31",
+        "username": "Moriah.Stanton",
+        "website": "ambrose.net"
+    }
+]
